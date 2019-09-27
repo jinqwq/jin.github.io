@@ -1,0 +1,51 @@
+//导入语法
+@import "./variable.scss";
+@import "mixin.scss";
+
+
+//函数
+@function gray($num){
+	@return $num*2;
+}
+
+
+//嵌套语法
+.box{
+	@include bg-image('first');
+	ul{
+		li{
+			list-style:none;
+			background-color:$one-color;
+			div{
+				p.one{
+					line-height:30px;
+					background:$two-color;
+					span{
+						color:white;
+					}
+				}
+			}
+		}
+		li.two{
+			background:$four-color;
+			height:30px;
+		}
+		li:nth-child(3){
+			background-color:$six-color;
+		}
+		li.four{
+			//判断语句
+			@if (1+1==2) {height:120px;}
+			background:$five-color;
+			line-height:gray(50px);			
+		}
+		//循环语法
+		@for $i from 1 through 4{
+			li:nth-child(#{$i}){
+				width:$i*100px;
+			}
+		}
+	}
+}
+
+

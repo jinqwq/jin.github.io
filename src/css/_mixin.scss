@@ -1,0 +1,11 @@
+//多分辨率背景图混写
+@mixin bg-image($url){
+	background:url(#{$url}@1x.jpg);
+	@media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2){
+		background:url(#{$url}@2x.jpg);
+	}
+	@media (-webkit-min-device-pixel-ratio:3),(min-device-pixel-ratio:3){
+		background:url(#{$url}@3x.jpg);
+	}
+	
+}
